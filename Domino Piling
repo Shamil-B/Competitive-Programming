@@ -1,0 +1,7 @@
+def dominoPiling(M,N):
+    return int((M*N)/2)
+    
+list = input().split(" ")
+M = int(list[0])
+N = int(list[1])
+print(dominoPiling(M,N))
