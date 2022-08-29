@@ -1,0 +1,14 @@
+def gradingStudents(grades):
+    # Write your code here
+    newGrades = []
+    for i in range(len(grades)):
+  
+        next_multiple = grades[i]+(5-grades[i]%5)
+            
+        if grades[i]>37 and (next_multiple-grades[i])<3:
+            grades[i] = next_multiple
+            
+        newGrades.append(grades[i])
+    return newGrades
+            
+   
