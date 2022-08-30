@@ -1,0 +1,15 @@
+class Solution:
+    def sortSentence(self,s):
+        result = ""
+        arr = s.split(" ")
+        j = 1
+        for i in range(len(arr)):
+            for i in range(len(s)):
+                if arr[i][-1] == str(j):
+                    result = result+arr[i][:-1]+" "
+                    j += 1
+                    break
+                    
+        return result[:-1]
+                
+                    
