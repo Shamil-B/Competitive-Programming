@@ -1,0 +1,18 @@
+def countingValleys(steps, path):
+    # Write your code here
+    valleys = 0
+    num = 0
+    up = False
+    down = False
+    for i in range(steps):
+        if path[i]=="U":
+            num += 1
+            up = True
+            down = False
+        else:
+            num -= 1
+            up = False
+            down = True
+        if num == 0 and up:
+            valleys += 1
+    return valleys
