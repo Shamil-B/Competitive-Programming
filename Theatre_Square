@@ -1,0 +1,12 @@
+from math import ceil
+
+
+def theater_floor(n,m,a):
+    l = ceil(n/a)
+    w = ceil(m/a)
+    
+    return l*w
+
+inp = input()
+ls = inp.split(" ")
+print(theater_floor(int(ls[0]),int(ls[1]),int(ls[2])))
