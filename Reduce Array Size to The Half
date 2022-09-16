@@ -1,0 +1,22 @@
+class Solution:
+    def minSetSize(self, nums: List[int]) -> int:
+        new = []
+        nums.sort()
+        prev = nums[0]
+        count = 0
+        for i in range(len(nums)):
+            if nums[i]!=prev:
+                new.append(count)
+                count =  0
+                prev = nums[i]
+            count += 1
+        new.append(count)
+
+
+        size = len(new)
+        res = 0
+        new.sort()
+        while res < len(nums)//2 and len(new)>0:
+            res += new.pop()
+
+        return size-len(new)
