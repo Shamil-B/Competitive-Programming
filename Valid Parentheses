@@ -1,0 +1,23 @@
+from collections import deque
+class Solution:
+    def isValid(self, s: str) -> bool:
+        dic = {")":"(",
+            "]":"[",
+            "}":"{"}
+        stack = deque()
+        for p in s:
+            if p == "(" or p == "[" or p == "{":
+                stack.append(p)
+
+            else:
+                if len(stack)==0:
+                    return False
+
+                if dic[p]!=stack.pop():
+                    return False
+
+
+        if len(stack)==0:
+            return True
+
+            
