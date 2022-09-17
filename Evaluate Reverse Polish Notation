@@ -1,0 +1,16 @@
+from math import ceil
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        s = deque()
+        for i in range(len(tokens)):
+            if tokens[i]=="+" or tokens[i]=="-" or tokens[i]=="/" or tokens[i]=="*":
+                op = tokens[i]
+                ope1 = s.pop()
+                ope2 = s.pop()
+                res = int(eval(f"{ope2}" + f"{op}" + f"{ope1}"))
+                s.append(str(res))
+
+            else:
+                s.append(tokens[i])
+
+        return int(s.pop())
