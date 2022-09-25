@@ -1,0 +1,34 @@
+from collections import Counter
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        if tasks is None or len(tasks) == 0:
+            return None
+        
+
+        
+        if n == 0:
+            return len(tasks) 
+        
+
+        count_set = Counter(tasks)
+
+        tasks_dict = dict(count_set)
+
+        most_common_task = count_set.most_common(1)[0] if count_set else None
+        
+        if most_common_task is None:
+            return len(tasks)
+        
+        num_most_common = most_common_task[1]-1
+
+        idle_units = num_most_common * n
+
+        tasks_dict.pop(most_common_task[0])
+        
+        for key, value in tasks_dict.items():
+            idle_units -= min(value, num_most_common)
+            
+        if idle_units < 0:
+            return len(tasks)
+        
+        return len(tasks) + idle_units
