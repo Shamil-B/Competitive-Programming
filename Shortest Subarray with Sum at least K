@@ -1,3 +1,4 @@
+import collections
 class Solution:
     def shortestSubarray(self, A, K):
             dp = [0] * (len(A) + 1)
