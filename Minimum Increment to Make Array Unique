@@ -1,0 +1,7 @@
+class Solution:
+    def minIncrementForUnique(self, A):
+        res,tmp = 0,0
+        for i in sorted(A):
+            res += max(tmp - i, 0)
+            tmp = max(tmp + 1, i + 1)
+        return res
