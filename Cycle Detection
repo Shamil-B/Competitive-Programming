@@ -1,0 +1,20 @@
+# Complete the has_cycle function below.
+
+#
+# For your reference:
+#
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def has_cycle(head):
+    nodes = []
+    cur = head
+    while cur:
+        if cur in nodes:
+            return 1
+        nodes.append(cur)
+        cur = cur.next
+        
+    return 0
