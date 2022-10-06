@@ -1,0 +1,97 @@
+class MyLinkedList:
+
+    def __init__(self):
+        self.val = None
+        self.next = None
+        self.head = None
+        
+
+    def get(self, index: int) -> int:
+        cur = self.head
+        ind = 0
+        while cur:
+            if ind == index:
+                return cur.val
+            cur = cur.next
+            ind+=1
+        return -1
+
+    def addAtHead(self, val: int) -> None:
+        node = MyLinkedList()
+        node.val = val
+        node.next = self.head
+        self.head = node
+        
+
+    def addAtTail(self, val: int) -> None:
+        cur  = self.head
+        if not cur:
+            node = MyLinkedList()
+            node.val = val
+            self.head = node
+            return
+        while cur.next:
+            cur = cur.next
+
+        node = MyLinkedList()
+        node.val = val
+        cur.next = node
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        cur = self.head
+        if not cur and index>0:
+            return
+        if index==0 and not self.head:
+            node = MyLinkedList()
+            node.val = val
+            self.head = node
+            return
+
+        elif index==0:
+            node = MyLinkedList()
+            node.val = val
+            node.next = self.head
+            self.head = node
+            return
+            
+        ind = 0
+        while cur and cur.next:
+            if ind == index-1:
+                break
+            cur = cur.next
+            ind+=1
+
+        node = MyLinkedList()
+        node.val = val
+        nextNode = cur.next
+        cur.next = node
+        node.next =nextNode
+        
+
+    def deleteAtIndex(self, index: int) -> None:
+        cur = self.head
+        if index == 0:
+            self.head = self.head.next
+            return
+        ind = 0
+        valid = False
+        while cur.next:
+            if ind == index-1:
+                valid = True
+                break
+            cur = cur.next
+            ind+=1
+
+        if not valid:
+            return -1
+        cur.next = cur.next.next
+
+
+
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)
