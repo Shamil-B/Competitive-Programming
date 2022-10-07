@@ -1,0 +1,24 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        cur = head
+        nodes = []
+        sum = 0
+        while cur:
+            nodes.append(cur.val)
+            cur = cur.next
+
+        size = len(nodes)
+
+        for i in range(size//2):
+            tmp = nodes[i]+nodes[size-1-i]
+            if tmp>sum:
+                sum=tmp
+
+
+        return sum
