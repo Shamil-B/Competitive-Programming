@@ -9,12 +9,17 @@
 #
 #
 def has_cycle(head):
-    nodes = []
-    cur = head
-    while cur:
-        if cur in nodes:
-            return 1
-        nodes.append(cur)
-        cur = cur.next
-        
-    return 0
+    if not head or not head.next:
+        return 0
+    slow = fast = head
+    while True:
+        if fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        else:
+            return 0
+        if slow==fast:
+            break
+    
+    return 1
+
