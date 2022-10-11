@@ -1,0 +1,33 @@
+class Solution:
+    def maxSumTwoNoOverlap(self, nums, firstLen, secondLen):
+       pf1 = [0]*len(nums)
+       pf2 = [0]*len(nums)
+       sum = 0
+       n = len(nums)
+
+       for i in range(len(nums)):
+        if i<firstLen:
+            sum+=nums[i]
+        else:
+            pf1[i-firstLen] = sum
+            sum+=nums[i]
+            sum-=nums[i-firstLen]
+       pf1[i-firstLen+1] = sum
+       sum = 0 
+
+       for i in range(len(nums)):
+        if i<secondLen:
+            sum+=nums[i]
+        else:
+            pf2[i-secondLen] = sum
+            sum+=nums[i]
+            sum-=nums[i-secondLen]
+       pf2[i-secondLen+1] = sum
+       res = []
+       j = 0
+       for i in range(len(nums)):
+            if j not in range(i-secondLen+1,i+firstLen):
+                res.append(pf1[i]+pf2[j])
+            j+=1
+
+       return max(res)
