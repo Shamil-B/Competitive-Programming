@@ -1,0 +1,36 @@
+class Solution:
+    def numberOfSubarrays(self, nums,k):
+        n = len(nums)
+        indOdds = []
+        dic = {}
+        res = 0
+
+        for i in range(n):
+            if nums[i]%2!=0:
+                indOdds.append(i)
+
+        p1 =0
+        j = m = 0
+        t = k
+
+        while m<len(indOdds) and m+k-1 <len(indOdds):
+        
+            dic['s'] = indOdds[m]
+            dic['e'] = indOdds[m+k-1]
+
+
+            if "s" in dic and "e" in dic:
+                w = (dic['s'])-(p1)+1
+                if t+j<len(indOdds):
+                    l = indOdds[t+j]-dic['e']
+                    j+=1
+                else:
+                    l = n-dic['e']
+                res += w*l
+
+                p1=dic['s']+1
+                dic = {}
+            l+=1
+            m+=1
+
+        return res
