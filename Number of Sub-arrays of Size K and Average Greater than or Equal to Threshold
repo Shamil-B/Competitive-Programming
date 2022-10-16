@@ -1,0 +1,18 @@
+class Solution:
+    def numOfSubarrays(self, arr: List[int], k: int, th: int) -> int:
+        n = len(arr)
+        sum = 0
+        count=0
+        for i in range(n+1):
+            if i < k:
+                sum += arr[i]
+
+            else:
+                if sum/k>=th:
+                    count+=1
+                if i==n:
+                    break
+                sum-=arr[i-k]
+                sum+=arr[i]
+
+        return count
