@@ -1,0 +1,44 @@
+class Solution:
+    def longestMountain(self, arr: List[int]) -> int:
+        n = len(arr)
+        p1 = p2 = 0
+        mid  = 0
+        maxx = 0
+
+        while p2<n-1:
+            if (arr[p2+1]<arr[p2] or arr[p2+1]==arr[p2]) and p1==p2:
+                p1 +=1
+                p2 +=1
+            
+            elif arr[p2+1]<arr[p2] and mid==0:
+                mid = p2
+                p2+=1
+                continue
+            elif arr[p2+1]>arr[p2]:
+                if mid!=0:
+                    maxx = max(maxx,p2-p1+1)
+                    p1 = p2
+                    mid = 0
+                
+
+                else:
+
+                    p2+=1
+                    continue
+            elif arr[p2+1]==arr[p2]:
+                if mid!=0:
+                    maxx = max(maxx,p2-p1+1)
+                    p1 = p2
+                    mid = 0
+
+                p1 = p2 = p2+1
+            elif arr[p2+1]<arr[p2]:
+                p2+=1
+
+                
+                
+        if mid!=0 and arr[-1]<arr[-2]:
+            maxx = max(n-p1,maxx)
+
+
+        return maxx
