@@ -1,0 +1,60 @@
+class Solution:
+    def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
+        tokens.sort()
+        n = len(tokens)
+        p1 = 0
+        p2 = n-1
+        score = 0
+        if n==1 and power>=tokens[0]:
+                return 1
+
+        if n==1 and power<tokens[0]:
+                return 0
+        while p1<=p2:
+            if tokens[p1]<=power:
+                power-=tokens[p1]
+                score+=1
+                p1+=1
+                continue 
+
+            if len(tokens[p1:p2+1])>3 and tokens[p2]+power >= tokens[p1]+tokens[p1+1]:
+                power+=tokens[p2]
+                score -= 1 
+                if score<0:
+                    return 0
+                p2-=1
+
+            elif len(tokens[p1:p2+1])>3 and tokens[p2]+power < tokens[p1]+tokens[p1+1]:
+                power+=tokens[p2]
+                score -= 1 
+                if score<0:
+                    return 0
+                p2-=1
+
+
+            elif p2+1-p1==3 and tokens[p2]+power> tokens[p1]+tokens[p1+1]:
+                power+=tokens[p2]
+                score -= 1 
+                if score<0:
+                    return 0
+                p2-=1
+
+            elif p2+1-p1==3 and tokens[p2]+power >= tokens[p1]+tokens[p1+1]:
+                power+=tokens[p2]
+                score-=1
+                if score<0:
+                    return 0
+                p2-=1
+                
+            elif p2+1-p1==2 and tokens[p2]+power >= tokens[p1]:
+                power+=tokens[p2]
+                score-=1
+                if score<0:
+                    return 0
+                p2-=1
+
+            else:
+                break
+                
+
+        return score
