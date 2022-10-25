@@ -1,0 +1,38 @@
+class Solution:
+    def nextPermutation(self, nums):
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        p1 = n-2
+        p2 = n-1
+        b = False
+        while p1>=0:
+
+            if nums[p1]<nums[p2]:
+                b = True
+                tmp = nums[p2:]
+                target_ind = tmp.index(min(tmp))
+                while tmp[target_ind]<=nums[p1] or tmp[target_ind] != min(tmp):
+                    tmp.pop(target_ind)
+                    tmpp = target_ind
+                    target_ind = tmp.index(min(tmp))
+                  
+
+                target_ind+=p2
+                target = nums[target_ind]
+                nums.pop(target_ind)
+                nums.insert(p1,target)
+                if p2<n and len(nums[p2:])>1:
+                    sortedSegment = sorted(nums[p2:])
+                    nums[:] = nums[:p2]+sortedSegment
+
+                break
+
+            p2-=1
+            p1-=1
+
+        if not b:
+            nums.sort()
+
+        return nums
