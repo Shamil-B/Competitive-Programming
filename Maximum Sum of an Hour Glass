@@ -1,0 +1,35 @@
+class Solution:
+    def maxSum(self, grid: List[List[int]]) -> int:
+            m = len(grid)
+            n = len(grid[0])
+            sums = [[] for i in range(m)]
+
+
+            for j in range(m):
+                sum = 0
+                for i in range(n):
+                    if i<3:
+                        sum+=grid[j][i]
+                        if i==2:
+                            sums[j].append(sum)
+
+                    else:
+                        sum += grid[j][i]
+                        sum -= grid[j][i-3]
+                        sums[j].append(sum)
+
+
+
+            pRows = 1+(m-3)
+            pCols = 1+(n-3)
+
+            if m<3 or n<3:
+                return
+
+            totalSums = []
+
+            for i in range(pRows):
+                for j in range(pCols):
+                    totalSums.append(sums[i][j]+grid[i+1][j+1]+sums[i+2][j])
+
+            return max(totalSums)
