@@ -1,0 +1,20 @@
+
+def infiniteRooms():
+    k = int(input())
+    listOfRooms = input().split(' ')
+    containerDic = {}
+
+    for room in listOfRooms:
+        if room not in containerDic:
+            containerDic[room] = 1
+            
+        else:
+            containerDic[room] += 1
+    
+
+    for room in listOfRooms:
+        if containerDic[room]==1:
+            print(room)
+            
+            
+infiniteRooms()
