@@ -1,0 +1,22 @@
+
+def wordOrder():
+  size = int(input())
+  newContainer = {}
+  count = 0
+
+  for i in range(size):
+      inpString = input()
+      if inpString not in newContainer:
+          newContainer[inpString] = 1
+          count+=1
+      else:
+          newContainer[inpString] += 1
+
+  print(count)
+  values = list(newContainer.values())
+
+  for i in range(count):
+      print(values[i],end=" ")
+      
+      
+wordOrder()
