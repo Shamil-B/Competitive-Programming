@@ -1,0 +1,29 @@
+
+def pileUp(cubes,size):
+    last = None
+
+    for i in range(size):
+        if int(cubes[0])>=int(cubes[-1]):
+            if last==None or int(cubes[0])<=last:
+                last = int(cubes.pop(0))
+                
+            else:
+                return 'No'
+            
+        else:
+                if last==None or int(cubes[-1])<=last:
+                    last = int(cubes.pop())
+                
+                else:
+                    return 'No'
+                
+    return 'Yes'
+            
+    
+tests = int(input())
+
+for i in range(tests):
+    size = int(input())       
+    cubes = input().split(' ')
+    result = pileUp(cubes,size)
+    print(result)
