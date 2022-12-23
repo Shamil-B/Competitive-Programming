@@ -6,7 +6,8 @@ class Solution:
         summ = 0
         
         
-        for s in salary:
+        for i in range(len(salary)):
+            s = salary[i]
             
             summ += s
             
