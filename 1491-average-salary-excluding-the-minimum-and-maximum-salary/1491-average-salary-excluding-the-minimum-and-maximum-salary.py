@@ -4,9 +4,10 @@ class Solution:
         minn = salary[0]
         maxx = salary[0]
         summ = 0
+        size = len(salary)
         
         
-        for i in range(len(salary)):
+        for i in range(size):
             s = salary[i]
             
             summ += s
@@ -19,4 +20,4 @@ class Solution:
                 
         summ = summ - maxx - minn
             
-        return summ/(len(salary)-2)
+        return summ/(size-2)
