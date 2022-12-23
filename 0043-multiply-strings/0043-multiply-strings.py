@@ -1,8 +1,10 @@
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
-        pdt = '0'
+        pdt = '0'  #final product holder
         
-        for i in range(len(num1)-1,-1,-1):
+        #what we are basically going to do is simulate the technique of multiplying two numbers by hand
+        
+        for i in range(len(num1)-1,-1,-1):  #iterating through both numbers backwards
             tmp = '0'*(len(num1)-i-1)
             rem = 0
             
