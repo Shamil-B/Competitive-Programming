@@ -1,0 +1,19 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+def difference(): 
+    size1 = int(input())
+    EngRollNums = input().split(' ')
+
+    size2 = int(input())
+    FreRollNums = input().split(' ')
+
+    size3 = len(set(EngRollNums+FreRollNums))
+
+    common = size1+size2-size3
+
+    return size1-common
+
+    
+    
+print(difference())
+
+
