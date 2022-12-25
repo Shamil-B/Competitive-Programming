@@ -1,0 +1,37 @@
+       
+def performCommand(ls,cmds):
+    if cmds[0] == 'print':
+        print(ls)
+        
+    elif cmds[0] == 'remove' and int(cmds[1]) in ls:
+        ls.remove(int(cmds[1]))
+        
+    elif cmds[0]=='append':
+        ls.append(int(cmds[1]))
+
+    elif cmds[0]=='sort':
+        ls.sort()
+        
+    elif cmds[0]=='pop' and len(ls)>0:
+        ls.pop()
+        
+    elif cmds[0]=='reverse':
+        ls.reverse()
+        
+    elif cmds[0]=='insert':
+        ls.insert(int(cmds[1]),int(cmds[2]))
+        
+        
+
+
+
+if __name__ == '__main__':
+    ls = []   #initialising list
+
+    N = int(input())
+    for i in range(N):
+        cmds = input().split(' ')
+            
+        performCommand(ls,cmds)
+        
+ 
