@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import defaultdict
+
+def defaultDic():
+
+    dic = defaultdict(list)
+
+    inp = input().split(' ')
+    n,m = int(inp[0]), int(inp[1])
+    groupB = []
+
+    for i in range(n):
+        dic[input()].append(str(i+1))
+
+    for i in range(m):
+        groupB.append(input())
+        
+
+    for ch in groupB:
+        if ch in dic:
+            print(' '.join(dic[ch]))
+
+        else:
+            print(-1)
+        
+        
+defaultDic()
