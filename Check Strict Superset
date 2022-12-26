@@ -1,0 +1,30 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+
+def is_superset(superr,sett):
+    
+    for item in sett:
+        if item not in superr:
+            return False
+        
+    if len(set(sett))<len(list(superr.keys())):
+        return True
+    
+    return False
+
+def main():
+    superSet = input().split(' ')
+    superr = {}
+
+    for item in superSet:
+        superr[item] = 0
+    n = int(input())
+
+    for i in range(n):
+        sett = input().split(' ')
+        if not is_superset(superr,sett):
+            return False
+            
+    return True
+
+print(main())
