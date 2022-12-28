@@ -7,14 +7,14 @@ class Solution:
             path = path.split(' ')  
             dirc = path[0]
             for i in range(1,len(path)):
-                ind1 = path[i].index('(')
-                content = path[i][ind1:-1]   #content of the file
+                indOfContentStart = path[i].index('(')
+                content = path[i][indOfContentStart:-1]   #content of the file
                 if content in dic:
-                    fileName = path[i][:ind1]
+                    fileName = path[i][:indOfContentStart]
                     dic[content].append(dirc+'/'+fileName)
 
                 else:
-                    fileName = path[i][:ind1]
+                    fileName = path[i][:indOfContentStart]
                     dic[content] = [dirc+'/'+fileName]
                         
         result = []
