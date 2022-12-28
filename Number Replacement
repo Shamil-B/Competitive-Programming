@@ -1,0 +1,36 @@
+def shirtSize():
+    shirts = input().split(' ')
+    firstType = shirts[0][-1]
+    secType = shirts[1][-1]
+
+    if shirts[0]==shirts[1]:
+        return '='
+
+    if firstType == secType:
+        if firstType=='M' or firstType=='L':
+            if len(shirts[0])>len(shirts[1]):
+                return '>'
+
+            else:
+                return '<'
+
+        else:
+            if len(shirts[0])<len(shirts[1]):
+                return '>'
+
+            else:
+                return '<'
+
+    else:
+        if firstType == 'L' or (firstType=='M' and secType=='S'):
+            return ">"
+
+        else:
+            return '<'
+
+
+
+
+tests = int(input())
+for i in range(tests):
+    print(shirtSize())
