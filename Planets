@@ -1,0 +1,30 @@
+def destroyPlanests():
+    inp = input().split(' ')
+    n,c = int(inp[0]),int(inp[1])
+    cost = 0
+
+    planets = input().split(' ')
+    dic = {}
+    for planet in planets:
+        if planet in dic:
+            dic[planet] += 1
+        else:
+            dic[planet] = 1
+
+    keys = list(dic.keys())
+
+    for key in keys:
+        
+        if dic[key]>=c:
+            cost+=c
+
+        else:
+            cost+=dic[key]
+
+    return cost
+
+
+tests = int(input())
+
+for i in range(tests):
+    print(destroyPlanests())
