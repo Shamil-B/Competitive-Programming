@@ -1,0 +1,35 @@
+
+def splitter(word):
+    new = []
+
+    for ch in word:
+        if ch!=' ':
+            new.append(ch)
+
+    return new
+
+def numberRepalcement():
+    n = int(input())
+
+    arr = input().split(' ')
+    s = input()
+    string = splitter(s)
+
+    dic = {}
+
+    for i in range(n):
+        num = arr[i]
+        if num not in dic:
+            dic[num] = string[i]
+
+        else:
+            if dic[num] != string[i]:
+                return 'NO'
+
+    return 'YES'
+
+
+tests = int(input())
+
+for i in range(tests):
+    print(numberRepalcement())
