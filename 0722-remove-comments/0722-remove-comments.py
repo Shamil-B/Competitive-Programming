@@ -7,7 +7,7 @@ class Solution:
         result = []
         lastOpenLine = []
         ind = 0
-        tup = None
+        tup = None                   #To make sure we dont use one '/' twice
         block = False
         
         while ind < len(source):
@@ -68,11 +68,5 @@ class Solution:
                         
                 else:
                     ind += 1
-                        
 
-
-
-            
-            
-     
         return result
