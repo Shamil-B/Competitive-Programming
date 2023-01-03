@@ -5,7 +5,7 @@ class Solution:
         i = 0
         maxx = 0
         count = 0
-        flag = {}
+        numOfSpaces = {}
         
         for ch in s:
             if ch == ' ':
@@ -19,11 +19,11 @@ class Solution:
         while i<len(s):
             
             if s[i] == ' ' and ind<maxx:
-                if ind in flag:
-                    flag[ind] += 1
+                if ind in numOfSpaces:
+                    numOfSpaces[ind] += 1
 
                 else:
-                    flag[ind] = 1
+                    numOfSpaces[ind] = 1
                 
                     
                 ind += 1
@@ -35,16 +35,16 @@ class Solution:
             else:
                 
                 if ind<len(res):
-                    res[ind] = res[ind] +' '*flag[ind]+ s[i]
-                    flag[ind] = 0
+                    res[ind] = res[ind] +' '*numOfSpaces[ind]+ s[i]
+                    numOfSpaces[ind] = 0
                     
                 else:
-                    if ind in flag:
-                        res.append(' '*flag[ind]+s[i])
+                    if ind in numOfSpaces:
+                        res.append(' '*numOfSpaces[ind]+s[i])
 
                     else:
                         res.append(s[i])
-                    flag[ind] = 0
+                    numOfSpaces[ind] = 0
                     
                 ind += 1
                 
