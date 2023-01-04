@@ -8,7 +8,7 @@ class Solution:
                 digits[i] = 0
                 
                 if i==0:
-                    digits.insert(0,1)
+                    digits = [1] + digits
                 
             else:
                 digits[i] = digits[i] + 1
