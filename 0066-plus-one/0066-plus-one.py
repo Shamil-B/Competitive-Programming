@@ -5,7 +5,9 @@ class Solution:
             num = digits[i] + 1
             
             if num==10:
+                
                 digits[i] = 0
+                
                 if i==0:
                     digits.insert(0,1)
                 
