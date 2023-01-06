@@ -7,13 +7,16 @@ class Solution:
         
         for num in nums:
             if num > 0:
-                positives.append(num)
+                combinedArray.append(num)
+                combinedArray.append(0)
                 
-            else:
-                negatives.append(num)
-                
-        for i in range(len(nums)//2):
-            combinedArray.append(positives[i])
-            combinedArray.append(negatives[i])
+        oddIndex = 1
+        for num in nums:
             
+            if num < 0 and oddIndex < len(combinedArray):
+                combinedArray[oddIndex] = num
+                oddIndex += 2
+        
+        
+       
         return combinedArray
