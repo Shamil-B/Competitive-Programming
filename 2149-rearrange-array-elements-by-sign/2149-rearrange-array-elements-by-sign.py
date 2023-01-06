@@ -1,8 +1,6 @@
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         
-        positives = []
-        negatives = []
         combinedArray = []
         
         for num in nums:
