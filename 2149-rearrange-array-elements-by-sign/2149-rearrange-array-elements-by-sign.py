@@ -1,5 +1,6 @@
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
+        
         size = len(nums)
         combinedArray = [0 for i in range(size)]
         
