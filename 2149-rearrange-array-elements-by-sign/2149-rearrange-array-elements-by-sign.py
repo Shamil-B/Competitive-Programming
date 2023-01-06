@@ -1,20 +1,18 @@
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
+        size = len(nums)
+        combinedArray = [0 for i in range(size)]
         
-        combinedArray = []
-        
-        for num in nums:
-            if num > 0:
-                combinedArray.append(num)
-                combinedArray.append(0)
-                
         oddIndex = 1
+        evenIndex = 0
         for num in nums:
-            
-            if num < 0 and oddIndex < len(combinedArray):
-                combinedArray[oddIndex] = num
-                oddIndex += 2
+            if num > 0 and evenIndex < size:
+                combinedArray[evenIndex] = num
+                evenIndex += 2
+                
+            else:
+                if oddIndex < size:
+                    combinedArray[oddIndex] = num
+                    oddIndex += 2
         
-        
-       
         return combinedArray
