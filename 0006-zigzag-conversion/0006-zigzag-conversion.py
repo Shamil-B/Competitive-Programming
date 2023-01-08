@@ -1,0 +1,10 @@
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        s, res = list(s), ["" for i in range(numRows)]
+        def upwards():
+            for i in range(numRows-2,0,-1): res[i] += s.pop(0)
+        def downwards():
+            for i in range(numRows): res[i] += s.pop(0)
+        try: 
+            while True: downwards(); upwards() 
+        except IndexError: return "".join(res) 
