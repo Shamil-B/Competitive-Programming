@@ -6,13 +6,13 @@ class Solution:
         
         for num in nums:
             if num < pivot:
-                left += [num]
+                left.append(num)
                 
             elif num == pivot:
                 middle += 1
                 
             else:
-                right += [num]
+                right.append(num)
                 
                 
         return left + [pivot for i in range(middle)] + right
