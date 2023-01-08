@@ -1,7 +1,7 @@
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
         left = []
-        middle = []
+        middle = 0
         right = []
         
         for num in nums:
@@ -9,10 +9,10 @@ class Solution:
                 left.append(num)
                 
             elif num == pivot:
-                middle.append(num)
+                middle += 1
                 
             else:
                 right.append(num)
                 
                 
-        return left + middle + right
+        return left + [pivot for i in range(middle)] + right
