@@ -7,17 +7,19 @@ class DataStream:
         
 
     def consec(self, num: int) -> bool:
-        
+        count = self.count
         if num == self.value:
-            self.count += 1
+            count += 1
             
         else:
-            self.count = 0
+            count = 0
         
-        if self.count >= self.k:
+        if count >= self.k:
+            self.count = count
             return True
         
         else:
+            self.count = count
             return False
         
 
