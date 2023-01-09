@@ -3,7 +3,7 @@ class DataStream:
     def __init__(self, value: int, k: int):
         self.value = value
         self.k = k
-        self.count = 0
+        self.count = 0           #keeps track of the number of consecutive values equal to value
         
 
     def consec(self, num: int) -> bool:
@@ -17,8 +17,7 @@ class DataStream:
         if self.count >= self.k:
             return True
         
-        else:
-            return False
+        return False
         
 
 # Your DataStream object will be instantiated and called as such:
