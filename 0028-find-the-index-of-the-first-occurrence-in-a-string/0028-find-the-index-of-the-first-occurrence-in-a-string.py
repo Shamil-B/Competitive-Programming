@@ -1,14 +1,10 @@
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        splitted = self.splitIt(haystack,len(needle))
+        return self.splitIt(haystack,needle)
         
-        if needle in splitted:
-            return splitted[needle]
-        
-        return -1
     
-    
-    def splitIt(self,string,size):
+    def splitIt(self,string,needle):
+        size = len(needle)
         
         index = 0
         resDic = {}
@@ -20,16 +16,19 @@ class Solution:
                 
             elif ind == size-1:
                 word += ch
-                resDic[word] = index
                 index += 1
+                if word == needle:
+                    return 0
+                
                 
             else:
                 word += ch
                 word = word[1:]
-                if word not in resDic:
-                    resDic[word] = index
+                if word == needle:
+                        return index
+                
                 index += 1
                 
                 
-        return resDic
+        return -1
             
