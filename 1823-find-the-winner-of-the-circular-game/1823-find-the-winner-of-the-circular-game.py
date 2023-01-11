@@ -7,7 +7,7 @@ class Solution:
             return que[0]
 
         loser = (start+k-1)%len(que)
-        que.remove(que[loser])
+        que.pop(loser)
         start = loser%len(que)
 
         return self.findTheWinner(n,k,que,start)
