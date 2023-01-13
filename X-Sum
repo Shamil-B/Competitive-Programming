@@ -1,0 +1,48 @@
+def bishopAttack(matrix):
+        m = len(matrix)
+        n = len(matrix[0])
+        forward = {}
+        backward = {}
+
+        for row in range(m):
+            for col in range(n):
+                if row-col in forward:
+                    forward[row-col] += matrix[row][col]
+
+                else:
+                    forward[row-col] = matrix[row][col]
+
+                if row+col in backward:
+                    backward[row+col] += matrix[row][col]
+
+                else:
+                    backward[row+col] = matrix[row][col]
+
+        
+        maxx = 0
+
+        for row in range(m):
+            for col in range(n):
+                curSum = forward[row-col] + backward[row+col] - matrix[row][col]
+                maxx = max(maxx,curSum)
+
+
+        return maxx
+        
+        
+
+
+
+tests = int(input())
+
+for i in range(tests):
+    inp = input().split(' ')
+    n,m = int(inp[0]), int(inp[1])
+
+    matrix = []
+
+    for j in range(n):
+        row = list(map(int,input().split(' ')))
+        matrix.append(row)
+
+    print(bishopAttack(matrix))
