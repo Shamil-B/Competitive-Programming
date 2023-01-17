@@ -1,14 +1,14 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         
-        swap = True
+        swapped = True
         
-        while swap:
-            swap = False
+        while swapped:
+            swapped = False
             for i in range(len(names)-1):
                 if heights[i] < heights[i+1]:
                     heights[i] , heights[i+1] = heights[i+1], heights[i]
                     names[i] , names[i+1] = names[i+1], names[i]
-                    swap = True
+                    swapped = True
                     
         return names
