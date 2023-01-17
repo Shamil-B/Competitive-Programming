@@ -5,10 +5,10 @@ class Solution:
         
         while swap:
             swap = False
-            for i in range(len(names)-1):
-                if heights[i] < heights[i+1]:
-                    heights[i] , heights[i+1] = heights[i+1], heights[i]
-                    names[i] , names[i+1] = names[i+1], names[i]
+            for index in range(len(names)-1):
+                if heights[index] < heights[index+1]:
+                    heights[index] , heights[index+1] = heights[index+1], heights[index]
+                    names[index] , names[index+1] = names[index+1], names[index]
                     swap = True
                     
         return names
