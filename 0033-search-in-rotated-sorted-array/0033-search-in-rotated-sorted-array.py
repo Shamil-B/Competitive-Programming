@@ -21,6 +21,7 @@ class Solution:
             else:
                 return self.binary_search(nums, mid+1, end, target)
         # mid to end is sorted
+        
         else:
             if nums[mid]<target<=nums[end]:
                 return self.binary_search(nums, mid+1, end, target)
