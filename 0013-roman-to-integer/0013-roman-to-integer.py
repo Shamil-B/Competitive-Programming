@@ -23,7 +23,7 @@ class Solution:
         num = 0
         n = len(s)
         
-        while i<n:
+        while i < n:
             key = s[i:i+2]
             if key in dic1:
                 num += dic1[key]
