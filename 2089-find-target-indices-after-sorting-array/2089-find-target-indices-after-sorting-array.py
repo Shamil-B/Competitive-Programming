@@ -1,11 +1,13 @@
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        
         result = []
         sortedList = self.sortList(nums)
         for index in range(len(sortedList)):
             if sortedList[index]==target:
                 result.append(index)
-        print(sortedList)
+                
+        
         return result
                 
                 
