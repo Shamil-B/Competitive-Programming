@@ -1,0 +1,37 @@
+tests = int(input())
+ 
+for i in range(tests):
+    n = int(input())
+    arr = list(map(int,input().split(' ')))
+    arr.sort()
+    printed = False
+    swap = True
+    if len(arr)==1:
+        print('YES')
+        printed = True
+ 
+    for i in range(len(arr)-1):
+ 
+        while swap:
+            swap= False
+ 
+            if len(set(arr))==1:
+                print('YES')
+                printed = True
+                break
+ 
+            if i+1< len(arr) and abs(arr[i+1]-arr[i]) <= 1:
+                if arr[i+1]>arr[i]:
+                    arr.pop(i)
+ 
+                else:
+                    arr.pop(i+1)
+ 
+                swap = True
+ 
+    if len(set(arr))==1 and not printed:
+        print('YES')
+        printed = True
+ 
+    if not printed:
+        print('NO')
