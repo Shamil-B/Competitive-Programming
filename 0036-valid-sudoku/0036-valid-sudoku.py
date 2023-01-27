@@ -39,13 +39,5 @@ class Solution:
                     
                     else:
                         boxes[ind][num] = 0
-                    
-                    
-        #check three box wise
-        
-        
-    
-
-                    
-        
+                            
         return True
