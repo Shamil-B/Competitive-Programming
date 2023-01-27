@@ -2,7 +2,7 @@ class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         boxes = [{} for i in range(9)]
         
-        #check one row wise
+        #check one - row wise
         for row in board:
             
             dic = {}
@@ -15,7 +15,7 @@ class Solution:
                     dic[num] = 0
                 
                 
-        #check two column wise
+        #check two - column wise
 
                     
         for col in range(9):
