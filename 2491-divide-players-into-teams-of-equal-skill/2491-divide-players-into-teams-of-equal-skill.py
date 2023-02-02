@@ -1,6 +1,6 @@
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
-        skill.sort()
+        self.sortWithCounting(skill)
         n = len(skill)
         ptr1 = 0
         ptr2 = n-1
@@ -18,3 +18,18 @@ class Solution:
                 
         return chemistry
                 
+        
+    def sortWithCounting(self,arr):
+        tmpArr = [0 for i in range(max(arr)+1)]
+        
+        for num in arr:
+            tmpArr[num] += 1
+            
+        ind = 0
+        for i in range(len(tmpArr)):
+            while tmpArr[i] > 0:
+                arr[ind] = i
+                tmpArr[i] -= 1
+                ind += 1
+                
+        return arr
