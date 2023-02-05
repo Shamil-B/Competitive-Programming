@@ -14,10 +14,10 @@ class Solution:
             cur = cur.next
             
         cur = head
-        i = 0
+        i = n-1
         while cur:
-            intRes += (cur.val*(2**(n-1-i)))
-            i += 1
+            intRes += (cur.val*(2**(i)))
+            i -= 1
             cur = cur.next
             
         return intRes
