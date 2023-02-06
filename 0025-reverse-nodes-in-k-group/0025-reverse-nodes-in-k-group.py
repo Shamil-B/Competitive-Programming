@@ -17,12 +17,8 @@ class Solution:
         
         while cur:
             if count == k:
-                new = self.reverseLinkedList(start.next,end)
+                new,curr = self.reverseLinkedList(start.next,end)
                 start.next = new
-                curr = new
-                while curr.next:
-                    curr = curr.next
-
                 curr.next = cur
                 start = curr
                 count = 0
@@ -31,13 +27,10 @@ class Solution:
             end = cur
             cur = cur.next
 
+                
         if count == k:
-                new = self.reverseLinkedList(start.next,end)
+                new,curr = self.reverseLinkedList(start.next,end)
                 start.next = new
-                curr = new
-                while curr.next:
-                    curr = curr.next
-
                 curr.next = cur
             
         
@@ -46,10 +39,11 @@ class Solution:
     
     def reverseLinkedList(self,head,tail):
         #reverse the linked list
+        
         current = head
         cur = head 
         while cur:
-            if cur==tail:
+            if cur == tail:
                 cur.next = None
                 break
                 
@@ -62,9 +56,10 @@ class Solution:
             current = head.next 
 
         else:
-            return head        
+            return (head,head)     
         
         new = ListNode(head.val)
+        prev = new
         current2 = head
         
         while current:
@@ -74,8 +69,6 @@ class Solution:
             new = current2
             current = current.next
             
-            
-            
         newHead = current2
-        return (newHead)
+        return (newHead,prev)
     
