@@ -16,6 +16,7 @@ class Solution:
         end = dummy
         
         while cur:
+            
             if count == k:
                 new,curr = self.reverseLinkedList(start.next,end)
                 start.next = new
