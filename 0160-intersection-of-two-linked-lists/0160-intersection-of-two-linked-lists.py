@@ -5,9 +5,7 @@
 #         self.next = None
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
-        dic = {}
-        
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:        
         cur = headA
         size1 = 0
         size2 = 0
