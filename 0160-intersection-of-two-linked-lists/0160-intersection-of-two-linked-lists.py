@@ -9,16 +9,40 @@ class Solution:
         dic = {}
         
         cur = headA
+        size1 = 0
+        size2 = 0
         
         while cur:
-            dic[cur] = 0
+            size1 += 1
             cur = cur.next
             
         cur = headB
-        
         while cur:
-            if cur in dic:
-                return cur
+            size2 += 1
             cur = cur.next
+            
+        if size1>size2:
+            diff = size1-size2
+            
+            while diff>0:
+                headA = headA.next
+                diff -= 1
+                
+        else:
+            diff = size2-size1
+            
+            while diff>0:
+                headB = headB.next
+                diff -= 1
+                
+        while headA != headB:
+            
+            if not headA or not headB:
+                return None
+            
+            headA = headA.next
+            headB = headB.next
+            
+        return headA
             
         return None
