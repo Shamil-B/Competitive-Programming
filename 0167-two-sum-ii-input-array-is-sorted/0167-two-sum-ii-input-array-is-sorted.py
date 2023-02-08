@@ -5,11 +5,11 @@ class Solution:
         ptr2 = n-1
         
         while ptr1 < ptr2:
-            
-            if numbers[ptr1] + numbers[ptr2] == target:
+            summ = numbers[ptr1] + numbers[ptr2]
+            if summ == target:
                 return [ptr1+1,ptr2+1]
             
-            elif numbers[ptr1] + numbers[ptr2] < target:
+            elif summ < target:
                 ptr1 += 1
 
             else:
