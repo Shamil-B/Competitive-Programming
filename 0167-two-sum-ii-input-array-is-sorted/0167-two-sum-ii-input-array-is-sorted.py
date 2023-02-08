@@ -5,6 +5,7 @@ class Solution:
         ptr2 = n-1
         
         while ptr1 < ptr2:
+            
             if numbers[ptr1] + numbers[ptr2] == target:
                 return [ptr1+1,ptr2+1]
             
