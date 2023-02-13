@@ -1,0 +1,30 @@
+def noOfSmaller():
+    n, m = map(int,input().split())
+    a = list(map(int,input().split()))
+    b = list(map(int,input().split()))
+ 
+    p1 = p2 = 0
+    res = []
+    count = 0
+    while p2<m:
+        if p1 == n:
+            break
+ 
+        if a[p1] >= b[p2]:
+            res.append(count)
+            p2 += 1
+ 
+        else:
+            count += 1
+            p1 += 1
+ 
+    while p2<m:
+        res.append(count)
+        p2 += 1
+ 
+    return res
+ 
+ 
+ 
+ 
+print(*noOfSmaller())
