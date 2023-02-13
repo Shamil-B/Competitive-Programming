@@ -1,14 +1,4 @@
 class Solution:
     def countOdds(self, low: int, high: int) -> int:
-        length = high-low+1
         
-        if length%2==0:
-            return length//2
-        
-        else:
-            val = length//2
-            if low%2==0:
-                return val
-            
-            else:
-                return val + 1
+        return (high-low+1)//2 + min(high%2,low%2)
