@@ -6,8 +6,9 @@ class Solution:
             return length//2
         
         else:
+            val = length//2
             if low%2==0:
                 return length//2
             
             else:
-                return length//2 + 1
+                return val + 1
