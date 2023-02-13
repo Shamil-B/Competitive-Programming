@@ -8,7 +8,7 @@ class Solution:
         else:
             val = length//2
             if low%2==0:
-                return length//2
+                return val
             
             else:
                 return val + 1
