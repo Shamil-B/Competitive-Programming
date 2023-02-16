@@ -1,30 +1,29 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        dic1 = {}
-        dic2 = {}
+        dic = {}
         arr1 = []
         arr2 = []
         counter = 1
         
         for ch in s:
-            if ch in dic1:
-                arr1.append(dic1[ch])
+            if ch in dic:
+                arr1.append(dic[ch])
                 
             else:
-                dic1[ch] = counter
+                dic[ch] = counter
                 counter += 1
-                arr1.append(dic1[ch])
+                arr1.append(dic[ch])
                 
         counter = 1
-        
+        dic = {}
         for ch in t:
-            if ch in dic2:
-                arr2.append(dic2[ch])
+            if ch in dic:
+                arr2.append(dic[ch])
                 
             else:
-                dic2[ch] = counter
+                dic[ch] = counter
                 counter += 1
-                arr2.append(dic2[ch])
+                arr2.append(dic[ch])
                 
         return arr1 == arr2
                 
