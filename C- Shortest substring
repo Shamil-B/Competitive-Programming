@@ -1,0 +1,26 @@
+tests = int(input())
+ 
+for i in range(tests):
+    s = input()
+    dic = {}
+    count = 0
+    minn = len(s)
+ 
+    if '1' not in s or '2' not in s or '3' not in s:
+        print(0)
+    
+    else:
+        for i in range(len(s)):
+ 
+            if s[i] not in dic:
+                dic[s[i]] = i
+                count += 1
+ 
+            else:
+                dic[s[i]] = i
+            
+            if count==3:
+                ls = dic.values()
+                minn = min(minn,(max(ls)-min(ls))+1)
+ 
+        print(minn)
