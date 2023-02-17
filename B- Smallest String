@@ -1,0 +1,42 @@
+tests = int(input())
+ 
+for i in range(tests):
+    n, m, k = map(int,input().split())
+    a = list(input())
+    b = list(input())
+    c = []
+    a.sort()
+    b.sort()
+ 
+    p1 = p2 = 0
+    tk1 = k
+    tk2 = k
+    while p1<n and p2<m:
+ 
+        if a[p1] < b[p2]:
+            tk2 = k
+            if tk1 > 0:
+                c.append(a[p1])
+                tk1 -= 1
+                p1 += 1
+ 
+            else:
+                c.append(b[p2])
+                p2 += 1
+                tk1 = k
+ 
+        else:
+            tk1 = k
+            if tk2 > 0:
+                c.append(b[p2])
+                tk2 -= 1
+                p2 += 1
+ 
+            else:
+                c.append(a[p1])
+                p1 += 1
+                tk2 = k
+ 
+ 
+    print(''.join(c))
+ 
