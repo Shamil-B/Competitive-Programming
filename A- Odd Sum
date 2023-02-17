@@ -1,0 +1,22 @@
+n = int(input())
+intArr = list(map(int,input().split()))
+printed = False
+ 
+summ = sum(intArr)
+if summ%2==0:
+    
+    intArr.sort()
+    arr1 = intArr[:n]
+    arr2 = intArr[n:]
+ 
+    if sum(arr1) != sum(arr2):
+        print(*intArr)
+        printed = True
+ 
+    else:
+        print(-1)
+        printed = True
+ 
+else:
+    print(*intArr)
+    printd = True
