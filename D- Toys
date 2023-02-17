@@ -1,0 +1,31 @@
+n, m = map(int,input().split())
+prices = list(map(int,input().split()))
+dic = {}
+ 
+for i in range(m):
+    item = input()
+    if item in dic:
+        dic[item] += 1
+ 
+    else:
+        dic[item] = 1
+ 
+arr = list(dic.values())
+ 
+minSum = maxSum = 0
+p1 = len(arr)-1
+p2 = 0
+ 
+arr.sort()
+prices.sort()
+ 
+for i in range(len(arr)-1,-1,-1):
+    minSum += (arr[i]*prices[p2])
+    p2 += 1
+ 
+p2 = len(prices)-1
+for i in range(len(arr)-1,-1,-1):
+    maxSum += (arr[i]*prices[p2])
+    p2 -= 1
+    
+print(minSum,maxSum)
