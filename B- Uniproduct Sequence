@@ -1,0 +1,37 @@
+n = int(input())
+intArr = list(map(int,input().split()))
+ 
+intArr.sort()
+neg = []
+zero = []
+pos = []
+ 
+summ = 0
+ 
+for num in intArr:
+    if num<0:
+        neg.append(num)
+ 
+    elif num==0:
+        zero.append(num)
+ 
+    else:
+        pos.append(num)
+ 
+if len(neg) % 2!= 0 and len(zero)==0 and  (len(pos)==0 or (pos and pos[0] >= abs(neg[-1]))):
+    val = neg.pop()
+    summ += ((0 - val) + 1)
+ 
+elif len(neg) % 2!= 0 and len(zero)==0 and (len(pos)==0 or (pos and pos[0] < abs(neg[-1]))):
+    val = pos.pop(0)
+    summ += ((val) + 1)
+ 
+for num in neg:
+    summ += (0 - num - 1)
+ 
+summ += len(zero)
+ 
+for num in pos:
+    summ += (num - 1)
+ 
+print(summ)
