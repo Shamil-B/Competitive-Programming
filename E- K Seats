@@ -1,0 +1,55 @@
+n, m, k = map(int,input().split())
+grid = []
+res = 0
+ 
+if k==1:
+    for i in range(n):
+        grid.append(list(input()))
+        
+    for row in grid:
+        for col in row:
+            if col == ".":
+                res+=1
+ 
+    print(res)
+    
+ 
+ 
+else:
+    for i in range(n):
+        grid.append(list(input()))
+ 
+    for row in range(n):
+        count = 0
+        for col in range(m):
+            if grid[row][col] == "*":
+                if count-k >= 0:
+                    res += (count-k+1)
+                    
+                count = 0
+ 
+ 
+            else:
+                count += 1
+ 
+        if count-k >= 0:
+            res += (count-k+1)
+            count = 0
+ 
+    for col in range(m):
+        count = 0
+        for row in range(n):
+            if grid[row][col] == "*":
+                if count-k >= 0:
+                    res += (count-k+1)
+                    
+                count = 0
+ 
+            else:
+                count += 1
+ 
+        if count-k >= 0:
+            res += (count-k+1)
+            count = 0
+ 
+    print(res)
