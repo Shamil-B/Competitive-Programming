@@ -1,0 +1,31 @@
+n = int(input())
+arr = list(map(int,input().split()))
+ 
+p1 = 0
+p2 = n-1
+s1 = 0
+s2 = 0
+count=0
+ 
+for i in range(n):
+    if count%2==0:
+        if arr[p1]>arr[p2]:
+            s1+=arr[p1]
+            p1+=1
+ 
+        else:
+            s1+=arr[p2]
+            p2-=1
+ 
+    else:
+        if arr[p1]>arr[p2]:
+            s2+=arr[p1]
+            p1+=1
+ 
+        else:
+            s2+=arr[p2]
+            p2-=1
+ 
+    count+=1
+ 
+print(s1,s2)
