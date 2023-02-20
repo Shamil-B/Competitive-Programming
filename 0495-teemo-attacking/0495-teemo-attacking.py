@@ -4,10 +4,9 @@ class Solution:
         
         
         for i in range(1,len(timeSeries)):
-            diff = timeSeries[i]-timeSeries[i-1]
-            diff = duration-diff
+            diff = duration - (timeSeries[i] - timeSeries[i-1])
+            
             if diff>0:
                 summ += diff
                 
-        print(len(timeSeries),duration,summ)
         return len(timeSeries)*duration-summ
