@@ -2,9 +2,7 @@ class User:
     def __init__(self,id):
         self.id = id
         self.following = set()
-        self.followers = set()
-        
-
+        self.followers = set()  
         
 class Tweet:
     def __init__(self,tweetId,userId):
@@ -70,10 +68,7 @@ class Twitter:
             self.users[followerId] = User(followerId)
             
         user1 = self.users[followerId]
-        
-        if followeeId not in self.users:
-            self.users[followeeId] = User(followeeId)
-            
+
         user2 = self.users[followeeId]
         
         if user1 in user2.followers:
