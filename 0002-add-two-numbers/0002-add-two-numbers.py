@@ -7,7 +7,7 @@ class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         cur1 = l1
         cur2 = l2
-        newCur = newHead = ListNode(-1)
+        newCur = newDummy = ListNode(-1)
         rem = 0
         
         while cur1 and cur2:
@@ -39,7 +39,7 @@ class Solution:
         if rem:
             newCur.next = ListNode(rem)
         
-        return newHead.next
+        return newDummy.next
         
 #         num1 = num2 = ""
         
