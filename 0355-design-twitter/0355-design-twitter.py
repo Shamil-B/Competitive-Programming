@@ -1,12 +1,10 @@
 class User:
     def __init__(self,id):
         self.id = id
-        self.tweets = []
-        self.following = []
-        self.followers = []
+        self.following = set()
+        self.followers = set()
         
-    def postTweet(self,tweet):
-        self.tweets.append(tweet)
+
         
 class Tweet:
     def __init__(self,tweetId,userId):
@@ -27,7 +25,6 @@ class Twitter:
         user = self.users[userId]
         
         tweet = Tweet(tweetId,userId)
-        user.postTweet(tweet)
         self.newsFeed.append(tweet)
 
     def getNewsFeed(self, userId: int) -> List[int]:
@@ -64,9 +61,9 @@ class Twitter:
             
         user2 = self.users[followeeId]
         
-        user2.followers.append(user1)
+        user2.followers.add(user1)
             
-        user1.following.append(user2)
+        user1.following.add(user2)
 
     def unfollow(self, followerId: int, followeeId: int) -> None:
         if followerId not in self.users:
