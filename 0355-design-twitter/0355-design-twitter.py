@@ -68,7 +68,10 @@ class Twitter:
             self.users[followerId] = User(followerId)
             
         user1 = self.users[followerId]
-
+        
+        if followeeId not in self.users:
+            self.users[followeeId] = User(followeeId)
+            
         user2 = self.users[followeeId]
         
         if user1 in user2.followers:
