@@ -2,7 +2,7 @@ class Solution:
     def minOperations(self, logs: List[str]) -> int:
         length = 0
         for log in logs:
-            if log[:3]=="../":
+            if log == "../":
                 if length:
                     length -= 1
 
