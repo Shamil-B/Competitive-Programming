@@ -1,0 +1,12 @@
+def arrayManipulation(n, queries):
+    # Write your code here
+    array = [0]*(n+2)
+    
+    for query in queries:
+        array[query[0]-1] += query[2]
+        array[query[1]] -= query[2]
+        
+    for i in range(1,len(array)):
+        array[i] += array[i-1]
+        
+    return max(array)
