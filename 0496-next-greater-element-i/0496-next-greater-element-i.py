@@ -1,17 +1,22 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         res = []
-        for i in range(len(nums1)):
-                res.append(self.maxx(nums2[nums2.index(nums1[i]):]))
+        stack = []
+        nums1Set = set(nums1)
+        dic = {}
+        
+        for j in range(len(nums2)):
+            while stack and nums2[j] > stack[-1]:
+                dic[stack[-1]] = nums2[j]
+                stack.pop()
+                
+            stack.append(nums2[j])
+            
+        for num in nums1:
+            if num in dic:
+                res.append(dic[num])
+                
+            else:
+                res.append(-1)
                 
         return res
-        
-    def maxx(self,ls):
-        if len(ls)==0:
-            return -1
-        max = ls[0]
-        for i in ls:
-            if i>max:
-                return i
-        return -1
-
