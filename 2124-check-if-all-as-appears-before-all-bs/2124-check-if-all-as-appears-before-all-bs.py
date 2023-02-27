@@ -10,7 +10,6 @@ class Solution:
             elif ind2 == len(s) and ch == "b":
                 ind2 = ind
                 
-        print(ind1,ind2)
         return (ind2 > ind1)
                 
             
