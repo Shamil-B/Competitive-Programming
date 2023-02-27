@@ -1,4 +1,16 @@
 class Solution:
     def checkString(self, s: str) -> bool:
-        s2 = sorted(list(s))
-        return s2==list(s)
+        ind1 = -1
+        ind2 = len(s)
+        
+        for ind,ch in enumerate(s):
+            if ch == "a":
+                ind1 = ind
+                
+            elif ind2 == len(s) and ch == "b":
+                ind2 = ind
+                
+        print(ind1,ind2)
+        return (ind2 > ind1)
+                
+            
