@@ -3,14 +3,13 @@ class Solution:
         subArrays = 0
         dic = {0:1}
         
-        pfs = [nums[0]]
         n = len(nums)
         
         for i in range(1,n):
-            pfs.append(pfs[i-1]+nums[i])
+            nums[i] += nums[i-1]
             
             
-        for num in pfs:
+        for num in nums:
             rem = num%k
             if rem in dic:
                 subArrays += dic[rem]
