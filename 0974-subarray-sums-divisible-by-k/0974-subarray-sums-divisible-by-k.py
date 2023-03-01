@@ -8,7 +8,6 @@ class Solution:
         for i in range(1,n):
             nums[i] += nums[i-1]
             
-            
         for num in nums:
             rem = num%k
             if rem in dic:
