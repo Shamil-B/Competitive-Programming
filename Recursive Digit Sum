@@ -1,0 +1,16 @@
+
+def superDigit(n, k):
+    # Write your code here
+    if len(str(n))<5:
+        totalString = str(n)*k
+    else:
+        totalString = str(n)
+    intArr = list(map(int,list(totalString)))
+    totalSum = sum(intArr)
+    if totalSum//10 == 0:
+        return totalSum
+    
+    return superDigit(totalSum,1)
+    
+    
+ #HackerRank problem
