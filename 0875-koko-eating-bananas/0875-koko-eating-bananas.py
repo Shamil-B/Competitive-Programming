@@ -15,7 +15,6 @@ class Solution:
             else:
                 low = mid
 
-        print(low,high)
         if low == -1:
             return (piles[0]//h)+min(1,piles[0]%h)
         
