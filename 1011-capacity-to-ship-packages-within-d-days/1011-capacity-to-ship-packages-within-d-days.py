@@ -1,7 +1,8 @@
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
-        low = max(weights)
-        high = sum(weights)
+        low = max(weights)-1
+        totalSum = sum(weights)
+        high = totalSum+1
         
         while low+1 < high:
             
@@ -12,7 +13,7 @@ class Solution:
             else:
                 high = capacity
              
-        if self.amountOfDays(weights,high) <= days and self.amountOfDays(weights,low)<=days:
+        if high == totalSum+1:
             return low
         
         return high
