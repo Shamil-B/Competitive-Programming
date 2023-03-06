@@ -10,7 +10,7 @@ class Solution:
         for i in range(len(queries)):
             q = queries[i]
             freq = self.f(q)
-            res.append(n-bisect_right(words_freq,freq))
+            res.append(self.greaterThanMe(words_freq,freq))
         
         return res
 
@@ -27,3 +27,20 @@ class Solution:
                 min_freq += 1
                 
         return min_freq
+    
+    def greaterThanMe(self,nums,target):
+        n = len(nums)
+        low = -1
+        high = n
+        
+        while low+1<high:
+            mid = low + (high-low)//2
+            
+            if nums[mid]<=target:
+                low = mid
+                
+            else:
+                high = mid
+        
+        #var holds the first greater but we want the number of elements greater than the target
+        return n-high
