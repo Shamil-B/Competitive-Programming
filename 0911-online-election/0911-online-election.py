@@ -6,6 +6,9 @@ class TopVotedCandidate:
         self.freq = {}
         self.timesSet = set(times)
         
+        
+#first we modified the persons array to hold the person with maximum votes until the current index
+
         maxx = 0
         maxVal = persons[0]
         for ind,person in enumerate(persons):
@@ -24,7 +27,7 @@ class TopVotedCandidate:
 
     def q(self, t: int) -> int:
         
-        if t in self.times:
+        if t in self.timesSet:
             return self.persons[self.bisectLeft(self.times,t)]
         
         return self.persons[self.bisectLeft(self.times,t)-1]
