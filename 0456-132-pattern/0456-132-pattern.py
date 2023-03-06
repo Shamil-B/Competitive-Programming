@@ -25,7 +25,5 @@ class Solution:
                     stack.pop()
                 
                 stack.append([minn,num])
-
-            
                     
         return False
