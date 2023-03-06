@@ -25,10 +25,27 @@ class TopVotedCandidate:
     def q(self, t: int) -> int:
         
         if t in self.times:
-            return self.persons[bisect_left(self.times,t)]
+            return self.persons[self.bisectLeft(self.times,t)]
         
-        return self.persons[bisect_left(self.times,t)-1]
+        return self.persons[self.bisectLeft(self.times,t)-1]
+    
+    
+    def bisectLeft(self,nums,target):
+        n = len(nums)
+        low = -1
+        high = n
+        
+        while low+1<high:
+            mid = low + (high-low)//2
+            
+            if nums[mid] >= target:
+                high = mid
+                
+            else:
+                low = mid
 
+        return high
+        
 # Your TopVotedCandidate object will be instantiated and called as such:
 # obj = TopVotedCandidate(persons, times)
 # param_1 = obj.q(t)
