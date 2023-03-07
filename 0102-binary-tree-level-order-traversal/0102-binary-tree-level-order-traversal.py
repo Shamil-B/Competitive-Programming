@@ -8,6 +8,7 @@ class Solution:
     def levelOrder(self, root: Optional[TreeNode],dic={},level=0) -> List[List[int]]:
         if not root:
             return []
+        
         if level==0:
             dic = {level:[root.val]}
             
