@@ -5,14 +5,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def minDepth(self, root: Optional[TreeNode],isTop=True) -> int:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
         
         if not root:
             return 0
         
         if (root.left and root.right):
-            left = self.minDepth(root.left,False)
-            right = self.minDepth(root.right,False)
+            left = self.minDepth(root.left)
+            right = self.minDepth(root.right)
 
             return 1 + min(left,right)
         
