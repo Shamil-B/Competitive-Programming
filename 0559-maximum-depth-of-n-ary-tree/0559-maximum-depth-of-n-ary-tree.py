@@ -12,9 +12,10 @@ class Solution:
         if not root:
             return 0
         
-        values = [0]
+        maxx = 0
         
         for child in root.children:
-            values.append(self.maxDepth(child))
+            maxx = max(maxx,self.maxDepth(child))
+            
         
-        return 1+max(values)
+        return 1+maxx
