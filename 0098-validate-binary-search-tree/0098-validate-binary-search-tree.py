@@ -7,20 +7,25 @@
 class Solution:
     
     def isValidBST(self, root: Optional[TreeNode]) -> bool:        
+        self.prev = -inf
         
         def helper(root):
-            # (min,max)
-            if not root:
-                return (inf,-inf,True)
-
-            leftMin,leftMax,ansL = helper(root.left)
-            rightMin,rightMax,ansR = helper(root.right)
             
-            val = leftMax < root.val < rightMin
-                
-            return (min(root.val,leftMin),max(root.val,rightMax),(ansL and ansR and val))
+            if not root:
+                return True
+            
+            left = helper(root.left)
+            
+            if root.val <= self.prev:
+                return False
+            
+            self.prev = root.val
+            
+            right = helper(root.right)
+            
+            return left and right
         
-        return helper(root)[2]            
+        return helper(root)          
             
         
             
