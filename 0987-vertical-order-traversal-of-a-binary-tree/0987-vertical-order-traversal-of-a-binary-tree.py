@@ -28,7 +28,6 @@ class Solution:
             self.dic[key] = sorted(self.dic[key])
             
         self.dic = sorted(self.dic.items(), key=lambda x: x[0][0])
-        print(self.dic)
 
         self.container = {}
         for key in self.dic:
