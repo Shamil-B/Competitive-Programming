@@ -24,6 +24,7 @@ class Solution:
                     path += f"{root.val}"
                 else:
                     path += "->"+f"{root.val}"
+
                 backTrack(path,root.left)
                 backTrack(path,root.right)
                 path = ""
