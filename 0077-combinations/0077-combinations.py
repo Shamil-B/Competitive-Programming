@@ -1,21 +1,23 @@
 class Solution:
     def combine(self, n, k) -> List[List[int]]:
-        
         self.finalArr = []
-        nums = [i for i in range(1, n+2)]
         
-        def helper(arr,s):
-            
-            if s > n:
-                return 
+        def backTrack(arr,s):
 
             if len(arr) == k:
                 self.finalArr.append(arr[:])
                 return
-            arr.append(nums[s])
-            helper(arr, s+1)
-            arr.pop()
-            helper(arr, s+1)
+
+            candidates = [i for i in range(s+1,n+1)]
+            for candidate in candidates:
+                arr.append(candidate)
                 
-        helper([],0)
+                backTrack(arr[:],candidate)      
+                
+                arr.pop()
+                
+        backTrack([],0)
+        
         return self.finalArr
+    
+    
