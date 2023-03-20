@@ -3,7 +3,7 @@ class Solution:
         
         self.subSeqs = []
         self.unique = set()
-        def backtrack(path,nums):
+        def backtrack(path,ind):
             
             if len(path)>1:
                 tp = tuple(path)
@@ -11,12 +11,12 @@ class Solution:
                     self.subSeqs.append(path)
                     self.unique.add(tp)
             
-            for i in range(len(nums)):
+            for i in range(ind,len(nums)):
                 if not path or path[-1] <= nums[i]:
                     path.append(nums[i])
-                    backtrack(path[:],nums[i+1:])
+                    backtrack(path[:],i+1)
                     path.pop()
                     
-        backtrack([],nums)
+        backtrack([],0)
         return self.subSeqs
                     
