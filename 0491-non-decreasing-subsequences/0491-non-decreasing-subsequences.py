@@ -14,7 +14,7 @@ class Solution:
             for i in range(ind,len(nums)):
                 if not path or path[-1] <= nums[i]:
                     path.append(nums[i])
-                    backtrack(path[:],i+1)
+                    backtrack(path.copy(),i+1)
                     path.pop()
                     
         backtrack([],0)
