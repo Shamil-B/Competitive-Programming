@@ -2,7 +2,7 @@ class Solution:
     def maxLength(self, arr: List[str]) -> int:
         
         newArr = []
-        
+
         for s in arr:
             if len(s)==len(set(s)):
                 newArr.append(s)
@@ -19,7 +19,7 @@ class Solution:
                     if alpha[ch] != 0:
                         cont = True
                         break
-                        
+
                 if cont:
                     continue
                     
