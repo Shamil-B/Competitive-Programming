@@ -4,19 +4,19 @@ class Solution:
         
         ind = 0
         n = len(nums)
+        misInd = 0
         while ind<n:
             corPos = nums[ind]
             
             if corPos != ind and nums[ind] !=-1:
                 nums[corPos],nums[ind] = nums[ind],nums[corPos]
                 
+            elif nums[ind] == -1:
+                misInd = ind
+                ind += 1
+
             else:
                 ind += 1
-                
-        misInd = 0
-        for index,num in enumerate(nums):
-            if num == -1:
-                misInd = index
-                
+
         return misInd
                 
