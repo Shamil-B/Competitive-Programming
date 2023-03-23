@@ -1,10 +1,21 @@
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
-        res = []
-        sett = set(nums)
         
-        for i in range(1,len(nums)+1):
-            if i not in sett:
-                res.append(i)
+        ind = 0
+        n = len(nums)
+        
+        while ind<n:
+            corPos = nums[ind]-1
+            
+            if corPos!=ind and nums[corPos] != nums[ind]:
+                nums[corPos],nums[ind] = nums[ind],nums[corPos]
+
+            else:
+                ind += 1
+                
+        res = []
+        for i in range(n):
+            if i!=nums[i]-1:
+                res.append(i+1)
                 
         return res
