@@ -1,0 +1,49 @@
+class minSwaps:
+    def __init__(self) -> None:
+        self.swaps = 0
+
+    def divNcon(self,l,r,nums,isTop=True):
+        if r-l<2:
+            return self.swaps,nums
+
+        if r-l==2:
+            if nums[l]>nums[r-1]:
+                nums[l],nums[r-1] = nums[r-1],nums[l]
+                self.swaps += 1
+            return self.swaps,nums
+
+        mid = (l+r)//2
+        left = self.divNcon(l,mid,nums,False)
+        right = self.divNcon(mid,r,nums,False)
+        
+        k = (r-l)//2
+        if k>1 and nums[l] > nums[r-k]:
+            self.swaps += 1
+            tl = l
+            tr = r-k
+
+            for _ in range(k):
+                nums[tl],nums[tr] = nums[tr],nums[tl]
+                tl += 1
+                tr += 1
+
+        if isTop:
+            return self.swaps,nums
+
+tests = int(input())
+for _ in range(tests):
+    n = int(input())
+
+    numsArr = list(map(int, input().split()))
+    m = minSwaps()
+    swaps,arr = m.divNcon(0,n,numsArr)
+
+    printed = False
+    for i in range(1,n):
+        if arr[i]<arr[i-1]:
+            print(-1)
+            printed = True
+            break
+
+    if not printed:
+        print(swaps)
