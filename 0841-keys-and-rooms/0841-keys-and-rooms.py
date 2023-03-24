@@ -12,5 +12,5 @@ class Solution:
                 traverseRooms(neigRoom)
             
         traverseRooms(0)
-        
+
         return len(visited) == len(rooms)
