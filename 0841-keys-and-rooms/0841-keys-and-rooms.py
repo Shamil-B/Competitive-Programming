@@ -2,15 +2,15 @@ class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         n = len(rooms)
         visited = set()
-        def traverseRooms(room):
+
+        stack = [0]
+        while stack:
+            room = stack.pop()
             if room in visited:
-                return
-            
+                continue
+                
             visited.add(room)
-            
             for neigRoom in rooms[room]:
-                traverseRooms(neigRoom)
-            
-        traverseRooms(0)
+                stack.append(neigRoom)
 
         return len(visited) == len(rooms)
