@@ -20,6 +20,7 @@ class Solution:
             
             for i in range(len(left)):
                 target = left[i]-self.k
+
                 #how many numbers from right are greater than target
                 targetIndex = bisect_left(right,target)
                 count = len(right)-targetIndex
