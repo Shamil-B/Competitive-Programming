@@ -8,7 +8,7 @@ class Solution:
         range_ = [0 for i in range(max_-min_+1)]
         for num in nums:
             range_[num-min_] += 1
-        print(range_)
+
         for i in range(len(range_)-1,-1,-1):
             if range_[i]>0:
                 count += range_[i]
