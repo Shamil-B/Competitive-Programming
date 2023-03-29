@@ -5,7 +5,7 @@ class Solution:
             counter = 0
             num = i
             while num!=0:
-                if num%2:
+                if num&1:
                     counter+=1
                 num = num>>1
                 
