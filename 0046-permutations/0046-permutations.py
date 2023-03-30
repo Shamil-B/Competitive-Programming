@@ -2,20 +2,21 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         self.permutations = []
         n = len(nums)
-        sett = set()
+        setWithBit = 0
         candidates = [nums[i] for i in range(n)]
         def backtrack(path):
-            
-            if len(path)==n:
+            nonlocal setWithBit
+            if 2**n-1==setWithBit:
                 self.permutations.append(path[:])
                 return
-            
-            for c in candidates:
-                if c not in sett:
-                    path.append(c)
-                    sett.add(c)
+
+            for i in range(n):
+                if 1<<i&setWithBit==0:
+                    path.append(candidates[i-1])
+                    setWithBit |= 1<<i
                     backtrack(path[:])
-                    sett.remove(path.pop())
+                    path.pop()
+                    setWithBit ^= 1<<i
         
         backtrack([])
         return self.permutations
