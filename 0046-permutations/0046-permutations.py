@@ -4,10 +4,11 @@ class Solution:
         n = len(nums)
         setWithBit = 0
         candidates = [nums[i] for i in range(n)]
-        self.num = 2**n-1
+        target = 2**n-1
         def backtrack(path):
-            nonlocal setWithBit
-            if self.num==setWithBit:
+            nonlocal setWithBit,target
+
+            if target == setWithBit:
                 self.permutations.append(path[:])
                 return
 
