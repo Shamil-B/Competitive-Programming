@@ -1,0 +1,20 @@
+tests = int(input())
+for _ in range(tests):
+    x = int(input())
+ 
+    firstOne = 1
+    ind = 0
+    while True:
+        if firstOne&x:
+            break
+        ind+=1
+        firstOne <<= 1
+ 
+    if x>2**ind:
+        print(2**ind)
+ 
+    elif ind>0:
+        print(2**ind+1)
+ 
+    else:
+        print(3)
