@@ -8,4 +8,3 @@ class Solution:
             result.append(n-bisect_left(potions,target))
             
         return result
-            
