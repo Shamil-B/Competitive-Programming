@@ -21,7 +21,7 @@ class Solution:
                 if node1!=node2:
                     if node1 in neighbours[node2]:
                         sum_ = len(neighbours[node1])+len(neighbours[node2])-1
-                        
+
                     else:
                         sum_ = len(neighbours[node1])+len(neighbours[node2])
                     maximalNetRank = max(maximalNetRank,sum_)
