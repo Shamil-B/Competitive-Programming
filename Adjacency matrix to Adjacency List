@@ -1,0 +1,11 @@
+n = int(input())
+graph = {i:[] for i in range(n)}
+for rowInd in range(n):
+    row = list(map(int, input().split()))
+
+    for colInd in range(len(row)):
+        if row[colInd]:
+            graph[rowInd].append(colInd+1)
+
+for key in graph.keys():
+    print(len(graph[key]),*graph[key])
