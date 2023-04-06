@@ -1,0 +1,20 @@
+n = int(input())
+sinks = []
+sources = []
+cols = [1]*n
+for i in range(n):
+    row = list(map(int, input().split()))
+    if len(set(row))==1 and row[0]==0:
+        sinks.append(i+1)
+
+    for ind in range(n):
+        if row[ind]!=0:
+            cols[ind] = 0
+
+for ind in range(n):
+    if cols[ind]:
+        sources.append(ind+1)
+
+print(len(sources),*sources)
+print(len(sinks),*sinks)
+
