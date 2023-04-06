@@ -4,16 +4,16 @@ class Solution:
         maximalNetRank = 0
         for road in roads:
             if road[0] not in neighbours:
-                neighbours[road[0]] = [road[1]]
+                neighbours[road[0]] = set([road[1]])
 
             else:
-                neighbours[road[0]].append(road[1])
+                neighbours[road[0]].add(road[1])
 
             if road[1] not in neighbours:
-                neighbours[road[1]] = [road[0]]
+                neighbours[road[1]] = set([road[0]])
 
             else:
-                neighbours[road[1]].append(road[0])
+                neighbours[road[1]].add(road[0])
 
         nodes = list(neighbours.keys())
         for node1 in nodes:
