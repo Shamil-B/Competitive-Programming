@@ -1,18 +1,15 @@
 class Solution:
     def findSmallestSetOfVertices(self, n: int, edges: List[List[int]]) -> List[int]:
-        allNodes = set()
         loved = set()
         
         for edge in edges:
-            allNodes.add(edge[0])
-            allNodes.add(edge[1])
             loved.add(edge[1])
-            
-        allNodes = list(allNodes)
-        
-        starters = []
-        for node in allNodes:
-            if node not in loved:
-                starters.append(node)
+ 
+        starters = set()
+        for edge in edges:
+            if edge[0] not in loved:
+                starters.add(edge[0])
+            if edge[1] not in loved:
+                starters.add(edge[1])
                 
-        return starters
+        return list(starters)
