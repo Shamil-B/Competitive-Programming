@@ -7,9 +7,7 @@ class Solution:
             allNodes.add(edge[0])
             allNodes.add(edge[1])
             loved.add(edge[1])
-            
-        allNodes = list(allNodes)
-        
+
         starters = []
         for node in allNodes:
             if node not in loved:
