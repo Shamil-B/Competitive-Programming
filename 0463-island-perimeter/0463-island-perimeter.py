@@ -11,7 +11,6 @@ class Solution:
                 newGrid[row][col] = neighbours
         
         perimeter = 0
-        print(newGrid)
         for row in range(n):
             for col in range(len(grid[0])):
                 sides = newGrid[row][col]
