@@ -47,9 +47,9 @@ class Solution:
             q = deque([(target,0)])
             visited = set()
             elements = []
-            level = 1
+            level = 0
             
-            while q:
+            while q and level<limit+1:
                 node,level = q.popleft()
                 
                 if node in visited:
@@ -66,4 +66,5 @@ class Solution:
             return elements
         
         treeToGraph(root)
+        print(graph)
         return bfsWithLimit(graph,target.val,k)
