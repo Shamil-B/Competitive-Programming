@@ -10,9 +10,9 @@ class Solution:
             else:
                 newFreq[item[1]] = [item[0]]
                 
+        limit = 2*k
         for key in newFreq.keys():
             newFreq[key] = sorted(newFreq[key])
-
         newFreq = list(newFreq.items())
         newFreq.sort(reverse=True)
         ans = []
