@@ -48,7 +48,7 @@ class Solution:
             if i not in stack:
                 remaining.append(i)
                 
-                
+        #the remaining elements are cycles therefore do dfs to find the maximum depth meaning the longest cycle's length
         self.explored = set()
         maxDepth = -1
         for num in remaining:
