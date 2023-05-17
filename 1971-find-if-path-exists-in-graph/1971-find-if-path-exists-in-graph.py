@@ -1,35 +1,51 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        graph = {}
+        # we do the union find
         
-        for node in edges:
-            if node[0] not in graph:
-                 graph[node[0]] = [node[1]]
-                    
-                    
-            else:
-                 graph[node[0]].append(node[1])
-                    
-            if node[1] not in graph:
-                 graph[node[1]] = [node[0]]
-                    
-                    
-            else:
-                 graph[node[1]].append(node[0])
-
-        used = set()
-        def hasPath(src,dst):
-            if src in used:
-                return
-
-            used.add(src)
-            if src == dst:
-                return True
+        self.representatives = {i:i for i in range(n)}
+        self.heights = {i:1 for i in range(n)}
             
-            for neighbour in graph[src]:
-                if hasPath(neighbour,dst):
-                    return True
-                
-            return False
+        # now for every edge we are going to construct the union graph
+        
+        for node1,node2 in edges:
+            self.union(node1,node2)
 
-        return hasPath(source,destination)
+                
+        # finally we check and return if the source and destination have the same representative meaning same group meaning they are connected meaning there is a path between them :D
+
+        return self.find(source)==self.find(destination)
+    
+    def find(self,x):
+        rep = x
+        
+        while self.representatives[rep]!=rep:
+            rep = self.representatives[rep]
+
+        topRep = rep
+        rep = x
+
+        while self.representatives[rep]!=rep:
+            curNode = rep
+            rep = self.representatives[rep]
+            self.representatives[curNode] = topRep
+
+        return topRep
+        
+    def union(self,x,y):
+        height1 = self.heights[x]
+        height2 = self.heights[y]
+
+        newHeight = max(height1,height2)
+
+        if height1 == height2:
+            newHeight = height1+1
+
+        if height1 > height2:
+            newRep = self.find(x)
+            oldRep = self.find(y)
+
+        else:
+            newRep = self.find(y)
+            oldRep = self.find(x)
+
+        self.representatives[oldRep] = newRep
