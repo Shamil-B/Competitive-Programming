@@ -3,7 +3,7 @@ class Solution:
         # we do the union find
         
         self.representatives = {i:i for i in range(1,n+1)}
-        self.heights = {i:1 for i in range(1,n+1)}
+        self.size = {i:1 for i in range(1,n+1)}
         
         # the only additional lines to the normal union find template are 3
 
@@ -33,11 +33,11 @@ class Solution:
         return topRep
         
     def union(self,x,y,cost):
-        height1 = self.heights[x]
-        height2 = self.heights[y]
+        size1 = self.size[x]
+        size2 = self.size[y]
 
 
-        if height1 > height2:
+        if size1 > size2:
             newRep = self.find(x)
             oldRep = self.find(y)
 
@@ -46,7 +46,7 @@ class Solution:
             oldRep = self.find(x)
 
         self.representatives[oldRep] = newRep
-        self.heights[newRep] = height1+height2
+        self.size[newRep] = size1+size2
         
         # ----------------and here--------------#
         self.costs[newRep] = min(self.costs[newRep],self.costs[oldRep],cost)
