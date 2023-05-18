@@ -6,8 +6,8 @@ class Solution:
         self.heights = {i:1 for i in range(1,n+1)}
         
         # the only additional lines to the normal union find template are 3
-        # ----------------here--------------#
 
+        # ----------------here--------------#
         self.costs = {i:float(inf) for i in range(1,n+1)}
 
         # now for every edge we are going to construct the union graph
@@ -36,10 +36,6 @@ class Solution:
         height1 = self.heights[x]
         height2 = self.heights[y]
 
-        newHeight = max(height1,height2)
-
-        if height1 == height2:
-            newHeight = height1+1
 
         if height1 > height2:
             newRep = self.find(x)
@@ -50,6 +46,7 @@ class Solution:
             oldRep = self.find(x)
 
         self.representatives[oldRep] = newRep
+        self.heights[newRep] = height1+height2
         
         # ----------------and here--------------#
         self.costs[newRep] = min(self.costs[newRep],self.costs[oldRep],cost)
