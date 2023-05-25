@@ -5,38 +5,23 @@ class Solution:
 
         minDiff = max(nums)-min(nums)
 
+        nums.sort()
 
         #4 cases
-        tmp = nums[:]
+
         # 0 3
-        nums.remove(max(nums))
-        nums.remove(max(nums))
-        nums.remove(max(nums))
-        if nums:
-            minDiff = min(minDiff,max(nums)-min(nums))
+        minDiff = min(minDiff,nums[-4]-nums[0])
 
         # 3 0
-        nums = tmp[:]
-        nums.remove(min(nums))
-        nums.remove(min(nums))
-        nums.remove(min(nums))
-        if nums:
-            minDiff = min(minDiff,max(nums)-min(nums))
+        minDiff = min(minDiff,nums[-1]-nums[3])
+
 
         # 1 2
-        nums = tmp[:]
-        nums.remove(min(nums))
-        nums.remove(max(nums))
-        nums.remove(max(nums))
-        if nums:
-            minDiff = min(minDiff,max(nums)-min(nums))
+        minDiff = min(minDiff,nums[-3]-nums[1])
+
 
         # 2 1
-        nums = tmp[:]
-        nums.remove(min(nums))
-        nums.remove(min(nums))
-        nums.remove(max(nums))
-        if nums:
-            minDiff = min(minDiff,max(nums)-min(nums))
+        minDiff = min(minDiff,nums[-2]-nums[2])
+
 
         return minDiff
