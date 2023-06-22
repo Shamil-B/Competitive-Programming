@@ -7,10 +7,9 @@ class Solution:
 
         for num in instructions:
             cost += min(sortedList.bisect_left(num), len(sortedList) - sortedList.bisect_right(num))
-            cost %= (10**9 + 7)
             sortedList.add(num)
 
-        return cost
+        return cost % (10**9 + 7)
         
     def calculateCost(self,nums,num):
         leftCost = bisect_left(nums,num)
