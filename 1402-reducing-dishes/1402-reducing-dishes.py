@@ -24,6 +24,7 @@ class Solution:
                 value = satisfaction[i]*(j)
 
             if value + reserveSum > 0:
+                print(i)
                 finalSum += satisfaction[i]*(j)
                 j += 1
                 
