@@ -1,5 +1,6 @@
 class Solution:
     def updateBoard(self, board: List[List[str]], click: List[int]) -> List[List[str]]:
+
         self.board = board
         visited = set()
         q = deque([click])
@@ -18,7 +19,6 @@ class Solution:
 
             else:
                 neighbours = self.getNeighbours(cord)
-
                 board[row][col] = "B"
                 for neig in neighbours:
                     if neig not in visited:
