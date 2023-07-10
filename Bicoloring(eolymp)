@@ -1,0 +1,51 @@
+from collections import defaultdict
+
+
+def bicolor():
+    n = int(input())
+
+    graph = defaultdict(list)
+    for i in range(n):
+        u, v = map(int, input().split())
+        graph[u].append(v)
+        graph[v].append(u)
+
+    stack = [1]
+
+    colors = {}
+
+    colors[1] = 2
+    visited = set()
+    while stack:
+        node = stack.pop()
+
+        if node in visited:
+            continue
+
+        visited.add(node)
+        for neig in graph[node]:
+            if neig not in colors:
+                colors[neig] = colors[node]*(-1)
+            
+            else:
+                if colors[neig] == colors[node]:
+                    return False
+
+            stack.append(neig)
+
+    return True
+
+test = int(input())
+while test != 0:
+    if bicolor():
+        print("BICOLOURABLE.")
+    else:
+        print('NOT BICOLOURABLE.')
+    test = int(input())
+
+# what is the reason for the runtime error?
+# I think it is because of the input() function
+# how to fix it?
+# I think I should use sys.stdin.readline() instead of input()
+
+
