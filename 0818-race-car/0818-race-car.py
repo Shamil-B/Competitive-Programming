@@ -5,21 +5,21 @@ class Solution:
         
         position = 0
         speed = 1
-        inst = ""
-        q = deque([(position,speed,inst)])
+        instructionLength = 0
+        q = deque([(position,speed,instructionLength)])
         visited = set()
         
         while q:
-            position, speed, inst = q.popleft()
+            position, speed, instructionLength = q.popleft()
 
             if position == target:
-                return len(inst)
+                return instructionLength
             
             if (position,speed) in visited:
                 continue
                 
             visited.add((position,speed))
 
-            q.append((position+speed, speed*2, inst+"A"))
+            q.append((position+speed, speed*2, instructionLength+1))
 
-            q.append((position, (speed//abs(speed))*-1, inst+"R"))
+            q.append((position, (speed//abs(speed))*-1, instructionLength+1))
