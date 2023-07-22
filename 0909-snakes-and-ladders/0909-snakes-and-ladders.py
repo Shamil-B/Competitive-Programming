@@ -16,7 +16,7 @@ class Solution:
                     
         q = [(0,1,False)]
         heapq.heapify(q)
-        visited = defaultdict(int)
+        visited = set()
 
         while q:
             level, cur, tookRide = heapq.heappop(q)
@@ -29,11 +29,9 @@ class Solution:
                 heapq.heappush(q,(level, shortcut[cur],True))
    
             else:
-                if visited[cur] > 2:
-                    continue
-                
-                visited[cur] += 1
+                if cur not in visited:                
+                    visited.add(cur)
 
-                for i in range(1,7):
-                    heapq.heappush(q,(level+1, cur+i,False))
+                    for i in range(1,7):
+                        heapq.heappush(q,(level+1, cur+i,False))
         return -1
