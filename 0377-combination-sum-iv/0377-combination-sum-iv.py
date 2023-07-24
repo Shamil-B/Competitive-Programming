@@ -6,9 +6,6 @@ class Solution:
             if sum_ == target:
                 return 1
 
-            if sum_ > target:
-                return 0
-
             ways = 0
             for num in nums:
                 if sum_+num>target:
