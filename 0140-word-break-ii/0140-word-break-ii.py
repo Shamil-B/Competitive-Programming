@@ -1,7 +1,8 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
-        
         ans = []
+        wordDict = set(wordDict)
+
         @cache
         def solve(ind,sent,word):
             if ind >= len(s):
