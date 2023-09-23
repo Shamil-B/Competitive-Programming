@@ -1,10 +1,10 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         dp = []
-        for height in nums:
-            left = bisect_left(dp, height)
+        for num in nums:
+            left = bisect_left(dp, num)
             if left == len(dp): 
-                dp.append(height)
+                dp.append(num)
             else: 
-                dp[left] = height
+                dp[left] = num
         return len(dp)
