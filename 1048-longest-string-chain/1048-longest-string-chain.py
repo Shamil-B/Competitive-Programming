@@ -33,8 +33,20 @@ class Solution:
      
             return max_
         
-        max_ = 1
-        for i in range(size):
-            max_ = max(max_,solveTopDown(i))
+#         max_ = 1
+#         for i in range(size):
+#             max_ = max(max_,solveTopDown(i))
             
-        return max_
+#         return max_
+    
+        def solveBottomUp():
+            dp = [0]*size
+            for i in range(size-1,-1,-1):
+                for j in range(i-1,-1,-1):
+                    if isPred(words[j],words[i]):
+                        dp[j] = max(dp[j],dp[i]+1)
+            return max(dp) + 1
+        
+        return solveBottomUp()
+
+            
