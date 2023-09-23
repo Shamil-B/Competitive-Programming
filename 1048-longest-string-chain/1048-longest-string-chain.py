@@ -2,8 +2,12 @@ class Solution:
     def longestStrChain(self, words: List[str]) -> int:
         size = len(words)  
         words.sort(key=lambda x : len(x))
-
+        memo = {}
         def isPred(word1,word2):
+            concat = word1+word2
+            if concat in memo:
+                return memo[concat]
+
             p1 = p2 = 0
             once = 1
             if len(word2)-len(word1) != 1:
@@ -12,6 +16,7 @@ class Solution:
             for i in range(len(word1)):
                 if word1[p1] != word2[p2]:
                     if once == 0:
+                        memo[concat] = False
                         return False
                     once -= 1
                     p2 += 1
@@ -20,8 +25,10 @@ class Solution:
                     p1 += 1
                     p2 += 1
             if once < 1 and word2[p2] != word1[p1]:
+                memo[concat] = False
                 return False
-
+            
+            memo[concat] = True
             return True
             
         @cache
