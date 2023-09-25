@@ -22,8 +22,19 @@ class Solution:
 
             return max_
 
-        max_ = 0
-        for i in range(size):
-            max_ = max(max_, solve(i))
+#         max_ = 0
+#         for i in range(size):
+#             max_ = max(max_, solve(i))
 
-        return max_
+#         return max_
+
+        def solveBottomUp():
+            dp = [teams[i][1] for i in range(size)]
+            for i in range(size):
+                for j in range(i+1,size):
+                    if isValidAction(i,j):
+                        dp[j] = max(dp[j],dp[i]+teams[j][1])
+            print(dp)
+            return max(dp)
+    
+        return solveBottomUp()
