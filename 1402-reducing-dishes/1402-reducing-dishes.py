@@ -1,30 +1,18 @@
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
-        n = len(satisfaction)
+        size = len(satisfaction)
         satisfaction.sort()
 
-        positiveStart = 0
-        for i in range(n):
-            if satisfaction[i] > 0:
-                positiveStart = i
-                break
+        @cache
+        def solve(ind, time):
+            if ind >= size:
+                return 0
+            
+            likeTimeCoeficient = time * satisfaction[ind]
 
-        reserveSum = sum(satisfaction[positiveStart:])
-        negSum = sum(satisfaction[:positiveStart])
-        finalSum = 0
-
-        j = 1
-        for i in range(n):
-            if satisfaction[i] < 0:
-                negSum -= satisfaction[i]
-                value = satisfaction[i]*(j) + negSum
-                
-            else:
-                value = satisfaction[i]*(j)
-
-            if value + reserveSum > 0:
-                print(i)
-                finalSum += satisfaction[i]*(j)
-                j += 1
-                
-        return finalSum
+            pick = solve(ind+1, time + 1) + likeTimeCoeficient
+            skip = solve(ind+1,time)
+            
+            return max(pick, skip)
+        
+        return solve(0,1)
