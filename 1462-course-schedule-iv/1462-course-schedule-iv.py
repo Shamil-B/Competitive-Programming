@@ -1,5 +1,8 @@
 class Solution:
     def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
+        
+        # Using Floyd-Warshals Algorithm
+
         dist = [[float('inf')] * numCourses for _ in range(numCourses)]
         for i, j in prerequisites:
             dist[i][j] = 1
