@@ -66,12 +66,14 @@ class Solution:
                 ways += solve(pos, size+1)
 
             return ways
-
+        
+        # handling numbers that start from with numbers 1-9
         ways = 0
         for row in range(3):
             for col in range(3):
                 res = solve((row, col), 1)
                 ways += res
                 
+        # handling numbers that start with 0
         ways += solve((3, 1), 1)
         return ways % (pow(10, 9) + 7)
