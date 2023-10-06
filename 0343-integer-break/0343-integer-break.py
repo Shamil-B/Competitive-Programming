@@ -1,6 +1,5 @@
 class Solution:
     def integerBreak(self, n: int) -> int:
-        
         @cache
         def solve(num, steps):
             if num == 0 and steps == 1:
@@ -13,7 +12,7 @@ class Solution:
                 return 0
 
             max_ = 0
-            for i in range(num, 0, -1):
+            for i in range(10, 0, -1):
                 max_ = max(max_, solve(num-i, steps+1)*i)
 
             return max_
