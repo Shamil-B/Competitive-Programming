@@ -1,5 +1,9 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
+        def numericsSolution():
+            ans = ((factorial((n+m-2)))//(factorial((n-1))*factorial((m-1))))
+            return ans
+
         def topDownDP(cord=(0,0),memo={}):
             
             row,col = cord
@@ -33,7 +37,7 @@ class Solution:
                 
             return dp[0][0]
 
-        return bottomUpDP()
+        return numericsSolution()
     
     def calculate(self,x,y,m,n,dp):
         if 0<=x<m and 0<=y<n:
