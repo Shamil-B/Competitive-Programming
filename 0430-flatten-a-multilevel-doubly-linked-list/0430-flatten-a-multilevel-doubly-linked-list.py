@@ -1,28 +1,29 @@
 class FlattenLinkedList:
-  def __init__(self, head):
-    self.head = head
+    def __init__(self, head):
+        self.head = head
 
-  def solve(self, head):
-    current =  head
-    tail = current
-    while current:
-      tail = current
-      if current.child:
-        start = current
-        end = current.next
-        flattend_tail  = self.solve(current.child)
+    def solve(self, head):
+        current =  head
+        tail = current
+        while current:
+            tail = current
+            if current.child:
+                start = current
+                end = current.next
+                flattend_tail  = self.solve(current.child)
 
-        # insert operation
-        start.next = current.child
-        flattend_tail.next = end
-        if end:
-            end.prev = flattend_tail
-        current.child.prev = start
-        current.child = None
+                # insert operation
+                start.next = current.child
+                flattend_tail.next = end
+                if end:
+                    end.prev = flattend_tail
 
-      current = current.next
+                current.child.prev = start
+                current.child = None
 
-    return tail
+            current = current.next
+
+        return tail
 
 """
 # Definition for a Node.
